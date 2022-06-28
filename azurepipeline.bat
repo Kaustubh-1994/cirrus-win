@@ -9,7 +9,7 @@ net config server /srvcomment:"rdpempire" > out.txt 2>&1
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /V EnableAutoTray /T REG_DWORD /D 0 /F > out.txt 2>&1
 start powershell Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -value 0
 start powershell Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
-net user KingOfNetflix rdpempire1! /add
+net user Windows2022 rdpempire1! /add
 timeout 2
 net localgroup administrators KingOfNetflix /add
 curl -o "C:\Users\KingOfNetflix\Desktop\Fast Config VPS.exe" https://raw.githubusercontent.com/Barento/dangdev/main/software/FastConfigVPS_v2.3.exe > out.txt 2>&1
