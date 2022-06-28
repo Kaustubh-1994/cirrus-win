@@ -1,6 +1,6 @@
 @echo off
 curl --silent -O https://raw.githubusercontent.com/Barento/cirrus-win/main/ngrok.exe
-ngrok.exe config add-authtoken 2BDqN0e6iNCAUIDQdbINVfDSmVM_4xBL9hj9yzyW2rCCxuQ6f
+ngrok.exe config add-authtoken %TOKEN%
 timeout 5
 start ngrok.exe tcp --region us 3389
 tzutil /s "SE Asia Standard Time" >nul
@@ -11,21 +11,19 @@ start powershell Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\
 start powershell Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 net user Windows2022 rdpempire1! /add
 timeout 2
-net localgroup administrators KingOfNetflix /add
-curl -o "C:\Users\KingOfNetflix\Desktop\Fast Config VPS.exe" https://raw.githubusercontent.com/Barento/dangdev/main/software/FastConfigVPS_v2.3.exe > out.txt 2>&1
-curl -o "C:\Users\KingOfNetflix\Desktop\EVKey Vietnamese Keyboard.exe" https://raw.githubusercontent.com/Barento/dangdev/main/software/EVKey64.exe > out.txt 2>&1
-curl -o "C:\Users\KingOfNetflix\Desktop\Enable Session notification.vbs" https://raw.githubusercontent.com/Barento/dangdev/main/Session.vbs > out.txt 2>&1
-curl -o "C:\Users\KingOfNetflix\Desktop\swd.bat" https://raw.githubusercontent.com/Barento/dangdev/main/swd.bat > out.txt 2>&1
-curl -o "C:\Users\KingOfNetflix\Desktop\minecraft_java_ngrok.bat" https://raw.githubusercontent.com/Barento/dangdev/main/minecraft_java_ngrok.bat > out.txt 2>&1
-curl -o "C:\Users\KingOfNetflix\Desktop\minecraft_java_playit.bat" https://raw.githubusercontent.com/Barento/dangdev/main/minecraft_java_playit.bat > out.txt 2>&1
-curl -o "C:\Users\KingOfNetflix\Desktop\auto_bedrock.bat" https://raw.githubusercontent.com/Barento/dangdev/main/auto_bedrock.bat > out.txt 2>&1
+net localgroup administrators Windows2022 /add
+curl -o "C:\Users\Windows2022\Desktop\Fast Config VPS.exe" https://raw.githubusercontent.com/Barento/dangdev/main/software/FastConfigVPS_v2.3.exe > out.txt 2>&1
+curl -o "C:\Users\Windows2022\Desktop\EVKey Vietnamese Keyboard.exe" https://raw.githubusercontent.com/Barento/dangdev/main/software/EVKey64.exe > out.txt 2>&1
+curl -o "C:\Users\Windows2022\Desktop\Enable Session notification.vbs" https://raw.githubusercontent.com/Barento/dangdev/main/Session.vbs > out.txt 2>&1
+curl -o "C:\Users\Windows2022\Desktop\swd.bat" https://raw.githubusercontent.com/Barento/dangdev/main/swd.bat > out.txt 2>&1
+curl -o "C:\Users\Windows2022\Desktop\minecraft_java_ngrok.bat" https://raw.githubusercontent.com/Barento/dangdev/main/minecraft_java_ngrok.bat > out.txt 2>&1
+curl -o "C:\Users\Windows2022\Desktop\minecraft_java_playit.bat" https://raw.githubusercontent.com/Barento/dangdev/main/minecraft_java_playit.bat > out.txt 2>&1
+curl -o "C:\Users\Windows2022\Desktop\auto_bedrock.bat" https://raw.githubusercontent.com/Barento/dangdev/main/auto_bedrock.bat > out.txt 2>&1
 diskperf -Y >nul
 sc config Audiosrv start= auto >nul
-ICACLS C:\Windows\Temp /grant KingOfNetflix:F >nul
-ICACLS C:\Windows\installer /grant KingOfNetflix:F >nul
-ICACLS C:\Windows\Temp /grant KingOfNetflix:F >nul
-ICACLS C:\Windows\installer /grant KingOfNetflix:F >nul
-curl --silent -O https://raw.githubusercontent.com/Barento/cirrus-win/main/crd.ps1
-start powershell crd.ps1
+ICACLS C:\Windows\Temp /grant Windows2022:F >nul
+ICACLS C:\Windows\installer /grant Windows2022:F >nul
+ICACLS C:\Windows\Temp /grant Windows2022:F >nul
+ICACLS C:\Windows\installer /grant Windows2022:F >nul
 echo Completed! Please check RDP address in ngrok endpoints. https://dashboard.ngrok.com/cloud-edge/endpoints/
 ping -n 99999999999999999999999999999999 10.10.10.10 >nul
